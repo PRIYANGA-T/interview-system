@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python MCQ Assessment - AI Interview System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <div class="brand">AI Interview System</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/domain-interview">Domain</a>
+                <a href="/resume-interview">Resume</a>
+                <a href="/behavioral-interview">Behavioral</a>
+                <a href="/python-mcq" class="active">Python MCQ</a>
+                <a href="/aptitude-mcq">Aptitude MCQ</a>
+            </div>
+        </nav>
+
+        <header class="header">
+            <h1>🧠 Python MCQ Assessment</h1>
+            <button class="btn-back" onclick="location.href='/'">← Back to Home</button>
+        </header>
+
+        <div id="mcqIntro" class="section">
+            <h2>Assessment Structure</h2>
+            <p class="subtitle">30 questions total: 1–10 Beginner, 11–20 Advanced, 21–30 Python DSA</p>
+            <ul class="features">
+                <li>✓ Questions 1-10: Python Beginner Level</li>
+                <li>✓ Questions 11-20: Python Advanced Level</li>
+                <li>✓ Questions 21-30: Python DSA MCQs</li>
+                <li>✓ Final evaluation with total score and section-wise score</li>
+            </ul>
+            <div class="button-group">
+                <button id="startMcqBtn" class="btn btn-primary">Start Python MCQ Test (30)</button>
+                <button id="startHardMcqBtn" class="btn btn-secondary">Start Hard Code Output Test (5)</button>
+                <button class="btn btn-secondary" onclick="location.href='/aptitude-mcq'">Open Aptitude MCQ Section</button>
+            </div>
+        </div>
+
+        <div id="mcqSection" class="section hidden">
+            <div class="interview-header">
+                <div class="progress-bar">
+                    <div id="mcqProgressFill" class="progress-fill"></div>
+                </div>
+                <div class="interview-info">
+                    <span id="mcqCurrentQuestion">Question 1 of 30</span>
+                    <span id="mcqCategoryBadge" class="question-type-badge">Beginner</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h3 id="mcqQuestionText">Loading question...</h3>
+            </div>
+
+            <div id="mcqOptions" class="mcq-options"></div>
+
+            <div class="button-group">
+                <button id="prevMcqBtn" class="btn btn-secondary">Previous</button>
+                <button id="nextMcqBtn" class="btn btn-primary">Next</button>
+                <button id="submitMcqBtn" class="btn btn-primary hidden">Submit Test</button>
+            </div>
+        </div>
+
+        <div id="mcqResultSection" class="section hidden">
+            <h2>📊 Python MCQ Result</h2>
+            <div class="score-display">
+                <div class="score-circle">
+                    <span id="mcqTotalScore">0</span>
+                    <span class="score-label">/30</span>
+                </div>
+                <p id="mcqPercentage">0%</p>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <h3>Beginner (1-10)</h3>
+                    <p id="beginnerScore">0 / 10</p>
+                </div>
+                <div class="analysis-card">
+                    <h3>Advanced (11-20)</h3>
+                    <p id="advancedScore">0 / 10</p>
+                </div>
+                <div class="analysis-card">
+                    <h3>Python DSA (21-30)</h3>
+                    <p id="dsaScore">0 / 10</p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="location.reload()">Retake Test</button>
+                <button class="btn btn-primary" onclick="location.href='/dashboard'">Go to Dashboard</button>
+            </div>
+        </div>
+
+        <div id="hardMcqSection" class="section hidden">
+            <div class="interview-header">
+                <div class="progress-bar">
+                    <div id="hardProgressFill" class="progress-fill"></div>
+                </div>
+                <div class="interview-info">
+                    <span id="hardCurrentQuestion">Question 1 of 5</span>
+                    <span class="question-type-badge">Hard Code Output</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h3 id="hardQuestionText">Loading question...</h3>
+                <pre id="hardCodeBlock" class="mcq-code-block"></pre>
+            </div>
+
+            <div id="hardOptions" class="mcq-options"></div>
+
+            <div class="button-group">
+                <button id="prevHardBtn" class="btn btn-secondary">Previous</button>
+                <button id="nextHardBtn" class="btn btn-primary">Next</button>
+                <button id="submitHardBtn" class="btn btn-primary hidden">Submit Hard Test</button>
+            </div>
+        </div>
+
+        <div id="hardResultSection" class="section hidden">
+            <h2>🧪 Hard Code Output Result</h2>
+            <div class="score-display">
+                <div class="score-circle">
+                    <span id="hardTotalScore">0</span>
+                    <span class="score-label">/5</span>
+                </div>
+                <p id="hardPercentage">0%</p>
+            </div>
+
+            <div id="hardExplanationList" class="feedback-section"></div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="location.reload()">Retake Hard Test</button>
+                <a id="downloadHardReportBtn" class="btn btn-primary hidden" href="#">Download Hard Test Report (PDF)</a>
+                <button class="btn btn-primary" onclick="location.href='/dashboard'">Go to Dashboard</button>
+            </div>
+        </div>
+
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p id="loadingText">Loading...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/python_mcq.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Interview - AI Interview System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <div class="brand">AI Interview System</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/domain-interview" class="active">Domain</a>
+                <a href="/resume-interview">Resume</a>
+                <a href="/behavioral-interview">Behavioral</a>
+                <a href="/python-mcq">Python MCQ</a>
+                <a href="/aptitude-mcq">Aptitude MCQ</a>
+            </div>
+        </nav>
+
+        <header class="header">
+            <h1>💻 Domain-Based Technical Interview</h1>
+            <button class="btn-back" onclick="location.href='/'">← Back to Home</button>
+        </header>
+
+        <!-- Domain Selection -->
+        <div id="domainSelection" class="section">
+            <h2>Select Your Domain</h2>
+            <p class="subtitle">Choose the technical area you want to be evaluated on</p>
+            
+            <div class="domain-grid">
+                <div class="domain-card" data-domain="Frontend">
+                    <div class="domain-icon">🎨</div>
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript, React, Angular, Vue</p>
+                </div>
+                
+                <div class="domain-card" data-domain="Backend">
+                    <div class="domain-icon">⚙️</div>
+                    <h3>Backend</h3>
+                    <p>Node.js, Python, REST APIs, Databases</p>
+                </div>
+                
+                <div class="domain-card" data-domain="Python">
+                    <div class="domain-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Core Python, Libraries, OOP, Data Structures</p>
+                </div>
+                
+                <div class="domain-card" data-domain="AI/ML">
+                    <div class="domain-icon">🤖</div>
+                    <h3>AI/ML</h3>
+                    <p>Machine Learning, Deep Learning, NLP, CV</p>
+                </div>
+                
+                <div class="domain-card" data-domain="DBMS">
+                    <div class="domain-icon">💾</div>
+                    <h3>DBMS</h3>
+                    <p>SQL, NoSQL, Database Design, Normalization</p>
+                </div>
+                
+                <div class="domain-card" data-domain="Cloud">
+                    <div class="domain-icon">☁️</div>
+                    <h3>Cloud</h3>
+                    <p>AWS, Azure, Docker, Kubernetes, DevOps</p>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary btn-large" id="startBtn" disabled>
+                Start Interview
+            </button>
+        </div>
+
+        <!-- Interview Section -->
+        <div id="interviewSection" class="section hidden">
+            <div class="adaptive-banner">
+                <span class="adaptive-pill">Adaptive Mode: ON</span>
+                <span id="adaptiveStatus" class="adaptive-status">Next Difficulty: Medium</span>
+            </div>
+
+            <div class="interview-header">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="interview-info">
+                    <span id="currentQuestion">Question 1 of 5</span>
+                    <span id="timer" class="timer">Time: 0:00</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="difficulty-badge" id="difficultyBadge">Medium</div>
+                <h3 id="questionText">Loading question...</h3>
+            </div>
+
+            <div class="answer-container">
+                <textarea 
+                    id="answerInput" 
+                    placeholder="Type your answer here..."
+                    rows="10"
+                ></textarea>
+                <div class="voice-controls">
+                    <button class="btn btn-secondary voice-btn" id="voiceBtn" type="button">🎤 Start Voice Input</button>
+                    <span id="voiceStatus" class="voice-status">Voice: Off</span>
+                </div>
+                <div class="word-count">Words: <span id="wordCount">0</span></div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" id="skipBtn">Skip Question</button>
+                <button class="btn btn-primary" id="submitAnswerBtn">Submit Answer</button>
+            </div>
+
+            <!-- Feedback Display -->
+            <div id="feedbackContainer" class="feedback-container hidden">
+                <h3>📊 Answer Evaluation</h3>
+                
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="scoreValue">0</span>
+                        <span class="score-label">/10</span>
+                    </div>
+                    <p>Your Score</p>
+                </div>
+                
+                <div class="keywords-matched">
+                    <h4>✓ Keywords Matched</h4>
+                    <div id="keywordTags"></div>
+                </div>
+                
+                <div class="feedback-section">
+                    <div class="feedback-card success">
+                        <h4>✓ Strengths</h4>
+                        <ul id="strengthsList"></ul>
+                    </div>
+                    
+                    <div class="feedback-card warning">
+                        <h4>⚠ Areas to Improve</h4>
+                        <ul id="weaknessList"></ul>
+                    </div>
+                    
+                    <div class="feedback-card info">
+                        <h4>💡 Suggestions</h4>
+                        <ul id="suggestionsList"></ul>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="nextQuestionBtn">Next Question →</button>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p id="loadingText">Processing...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/voice_input.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/domain_interview.js') }}"></script>
+
+
+</body>
+</html>

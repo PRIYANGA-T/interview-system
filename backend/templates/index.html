@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Evaluation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <div class="brand">AI Interview System</div>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/domain-interview">Domain</a>
+                <a href="/resume-interview">Resume</a>
+                <a href="/behavioral-interview">Behavioral</a>
+                <a href="/python-mcq">Python MCQ</a>
+                <a href="/aptitude-mcq">Aptitude MCQ</a>
+            </div>
+        </nav>
+
+        <section class="home-hero">
+            <div class="home-hero-content">
+                <p class="home-kicker">AI Interview Preparation Platform</p>
+                <h1>Practice smarter. Improve faster. Get interview-ready.</h1>
+                <p class="home-hero-subtitle">Train with domain, resume, and behavioral mock interviews powered by AI evaluation, then track progress in one dashboard.</p>
+
+                <div class="home-actions">
+                    <button class="btn btn-primary" onclick="location.href='/domain-interview'">Start Domain Interview</button>
+                    <button class="btn btn-secondary" onclick="location.href='/dashboard'">View Dashboard</button>
+                </div>
+
+                <div class="home-chips">
+                    <span class="home-chip">Adaptive Questioning</span>
+                    <span class="home-chip">Detailed PDF Reports</span>
+                    <span class="home-chip">Emotion + Confidence Insights</span>
+                </div>
+            </div>
+
+            <div class="home-hero-side">
+                <div class="home-stat-card">
+                    <p>Interview Modes</p>
+                    <h3>5</h3>
+                    <span>Domain • Resume • Behavioral • Python MCQ • Aptitude MCQ</span>
+                </div>
+                <div class="home-stat-card">
+                    <p>Reports</p>
+                    <h3>PDF</h3>
+                    <span>Export score, strengths, and next steps</span>
+                </div>
+                <div class="home-stat-card">
+                    <p>Tracking</p>
+                    <h3>Live</h3>
+                    <span>Dashboard with trends and recommendations</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section home-section">
+            <h2>Choose Your Interview Mode</h2>
+            <div class="cards-container home-cards">
+                <div class="card home-card">
+                    <div class="card-icon">💻</div>
+                    <h2>Domain-Based Interview</h2>
+                    <p>Test your technical knowledge across 6 specialized domains with AI-generated questions and intelligent evaluation.</p>
+                    <ul class="features">
+                        <li>✓ 6 Technical Domains (Frontend, Backend, Python, AI/ML, DBMS, Cloud)</li>
+                        <li>✓ AI Question Generation</li>
+                        <li>✓ Keyword & Semantic Analysis</li>
+                        <li>✓ Detailed Feedback & Suggestions</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="location.href='/domain-interview'">Start Domain Interview</button>
+                </div>
+
+                <div class="card home-card">
+                    <div class="card-icon">📄</div>
+                    <h2>Resume-Based Interview</h2>
+                    <p>Upload your resume and get personalized interview questions based on your skills, education, and projects.</p>
+                    <ul class="features">
+                        <li>✓ PDF Resume Upload & Parsing</li>
+                        <li>✓ Skills & Projects Extraction</li>
+                        <li>✓ Personalized Questions</li>
+                        <li>✓ Resume Alignment Scoring</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="location.href='/resume-interview'">Start Resume Interview</button>
+                </div>
+
+                <div class="card home-card">
+                    <div class="card-icon">🎥</div>
+                    <h2>Behavioral Interview with Emotion Analysis</h2>
+                    <p>Answer behavioral questions while AI analyzes your facial expressions and confidence levels in real-time.</p>
+                    <ul class="features">
+                        <li>✓ Real-time Webcam Analysis</li>
+                        <li>✓ Emotion Detection (OpenCV)</li>
+                        <li>✓ Confidence Scoring</li>
+                        <li>✓ Communication Assessment</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="location.href='/behavioral-interview'">Start Behavioral Interview</button>
+                </div>
+
+                <div class="card home-card">
+                    <div class="card-icon">📈</div>
+                    <h2>Performance Dashboard</h2>
+                    <p>Track interview performance with session analytics, score trends, and quick report downloads.</p>
+                    <ul class="features">
+                        <li>✓ Total Sessions & Completion Rate</li>
+                        <li>✓ Average and Best Score</li>
+                        <li>✓ Session-Type Breakdown</li>
+                        <li>✓ Recent Sessions with PDF Reports</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="location.href='/dashboard'">Open Dashboard</button>
+                </div>
+
+                <div class="card home-card">
+                    <div class="card-icon">🧠</div>
+                    <h2>Python MCQ Assessment</h2>
+                    <p>Take 30 Python MCQs split by level and get your final score instantly.</p>
+                    <ul class="features">
+                        <li>✓ Q1-Q10: Beginner Python MCQs</li>
+                        <li>✓ Q11-Q20: Advanced Python MCQs</li>
+                        <li>✓ Q21-Q30: Python DSA MCQs</li>
+                        <li>✓ Final Total Score with Section Breakdown</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="location.href='/python-mcq'">Start Python MCQ Test</button>
+                </div>
+
+                <div class="card home-card">
+                    <div class="card-icon">📐</div>
+                    <h2>Aptitude MCQ Assessment</h2>
+                    <p>Practice quantitative aptitude with 10 separate topics, each with 10 intermediate to advanced MCQs and hints.</p>
+                    <ul class="features">
+                        <li>✓ 10 Topics × 10 MCQs each</li>
+                        <li>✓ Topic-wise hints for every question</li>
+                        <li>✓ Score out of 10 for each topic test</li>
+                        <li>✓ Percentage and normalized score</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="location.href='/aptitude-mcq'">Start Aptitude MCQ</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>🎓 MCA Final Year Project</p>
+            <p class="tech-stack">Built with Flask, OpenCV, NLP & Generative AI</p>
+        </footer>
+    </div>
+</body>
+</html>
