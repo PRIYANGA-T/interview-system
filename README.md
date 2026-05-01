@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Generative AI Powered Interview Evaluation System
 
 A complete, production-ready interview evaluation system using Generative AI, Natural Language Processing, and Computer Vision for comprehensive candidate assessment.
@@ -409,4 +409,4 @@ Generative AI Powered Interview Evaluation System
 **Note**: This is a complete, runnable project with all modules integrated. Follow the setup instructions carefully for the best experience.
 =======
 # interview-system
->>>>>>> 828aa71ce4fea6348d2719fe6d9aff7ac159168c
+
